@@ -1,0 +1,27 @@
+/* start for Caraosel item */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.carousel-item{
+    width: 100%;
+    height: 95vh;
+}
+.carousel-caption{
+    color: black;
+    bottom: 5.5rem;
+}
+/* end for Caraosel item */
+/* mega menu start*/
+.menu-area{
+            position: static;
+}
+.mega-area{
+            width: 90%;
+            margin-left: 2%;
+            margin-right: 2%;
+            padding: 2%;
+}
+        
+/* mega menu ends*/

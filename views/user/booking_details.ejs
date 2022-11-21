@@ -1,0 +1,143 @@
+<%- include('../includes/header.ejs') %>
+<body>
+    <!-- Navbar start-->
+    <%- include('../includes/navigation.ejs') %>
+    <!-- Navbar end -->
+
+    <!-- Booking History  -->
+    <div class="container-fluid" style="background-color:whitesmoke;">
+        <div class="row row-cols-1 row-cols-lg-3 pb-lg-3 pb-md-3 pb-3">
+            
+            <!-- Food Package Start -->
+            <div class="col col-lg-9 pb-lg-3 pb-3 pb-md-3 pb-sm-3">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3">
+                    
+                    <div class="col col-lg-3">
+                    <h3 class="pt-2 pt-lg-2">Caterer Details</h3>
+                      <div class="p-1 border bg-light">
+                        <% for(let checkoutData of catererCuisineData[0]){ %>
+                        <div class="card" >
+                            <img src="/chefs_and_caterers/<%= checkoutData.image_url %>" style="height: 13rem;" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= checkoutData.caterer_name %></h5>
+                              <p class="card-text">We provide the best of whole world</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">Owner : <%= checkoutData.owner_name %>  </li>
+                              <li class="list-group-item">Supporting Cooks : <%= checkoutData.staff_count %></li>
+                              <li class="list-group-item">Events : <%= checkoutData.event_count %> </li>
+                              <li class="list-group-item">Ratings : 
+                                  <% for(let i=0;i< checkoutData.rating;i++) { %>
+                                  <ion-icon name="star" style="color:green;"></ion-icon>
+                                  <% } %>
+                                  (900)
+                              </li>
+                            </ul>
+                        </div>
+                        <% } %>
+                      </div>
+                    </div>
+                    
+                    <div class="col col-lg-9">
+                    <h3 class="pt-2 pt-lg-2"><%= catererCuisineData[0][0].cuisine_name %></h3>
+                      <div class="p-1 border bg-light">
+                        <div class="card" style="width: 100%;">
+                    
+                            <div class="card-body">
+                              <h5 class="card-title"></h5>
+                              <p class="card-text">
+                                Venu for the Event: <address>
+                                  Street:  14, Pandurang Bhavan, 2nd Carpenter Street, Girgaon
+                                  City:   Mumbai
+                                  State/province/area:    Maharashtra  
+                                  Phone number:  02223858874
+                                  Zip code:  400004
+                                  Country:  India
+                                </address> 
+                              </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <!-- Main Course -->
+                              <li class="list-group-item">
+                                <div class="row"> 
+                                  <h5>Full Course:</h5>
+                                  <div class="col col-lg-12 col-md-12 col-12">
+                                    <div class="container">
+                                      <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                                        
+                                        <% 
+                                          for (let cuisineData of catererCuisineData[1]){ 
+                                        %>
+                                        <div class="col">
+                                          <div class="card h-100">
+                                            <span class="position-absolute top-1 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+                                              <span class="visually-hidden"></span>
+                                            </span>
+                                            <img src="/image/<%= cuisineData.image_url%>" class="card-img-top" alt="..." height="150rem">
+                                            <div class="card-body">
+                                              <h5 class="card-title"><%= cuisineData.dish_name %></h5>
+                                              <p class="card-text"><%= cuisineData.dish_description.length > 60 ?cuisineData.dish_description.substring(0, 60)+"...":cuisineData.dish_description %></p>
+                                            </div>
+                                            <div class="card-footer">
+                                              <small class="text-muted">Last updated 3 mins ago</small>
+                                            </div>
+                                          </div>
+                                        </div>  
+                                        <% } %>
+                                      
+                                    </div>
+                                  </div>
+                                  <div class="col"></div>
+                                </div>   
+                              </li>        
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                
+                    
+                    
+                </div>
+            </div>
+            <!-- Booking History End -->
+
+            <!--Expenses start -->
+            <div class="col col-lg-3 pt-2">
+                <h3 class="card-title">Expenses</h3>
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">              
+                      <p class="card-text">Below contains all the details that will be charged for the services</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                      <% let perPlateCost = 0;
+                        let cgst = 0;
+                        let sgst = 0; 
+                        let cuisine_id = catererCuisineData[1][0].cuisine_id;
+                        let caterer_id = catererCuisineData[1][0].caterer_id;
+                        console.log(cuisine_id+" "+caterer_id);
+                        for (let cuisineData of catererCuisineData[1]){ 
+                            perPlateCost= perPlateCost + cuisineData.price;
+                      %>
+                      <li class="list-group-item"><%= cuisineData.dish_name %> : <%= cuisineData.price %></li>
+                      <% } 
+                          cgst = (perPlateCost*15)/100;
+                          sgst = (perPlateCost*15)/100;
+                      %>
+                      <li class="list-group-item">Per Plate Cost : <%=perPlateCost %></li>
+                      <li class="list-group-item">CGST: <%= cgst %></li>
+                      <li class="list-group-item">SGST: <%= sgst %></li>
+                      <li class="list-group-item">Total Cost : <%= perPlateCost+cgst+sgst %></li>
+                    </ul>
+                    <div class="card-body">
+                      <a type="submit" class="btn btn-success" href="/user/addOrder">Continue123</a>  
+                    </div>
+                </div>
+            </div>       
+            <!--Expenses end -->
+          </div>
+    </div>
+   
+<!-- Footer Start -->
+<%- include('../includes/footer.ejs') %>
+<!-- Footer End -->

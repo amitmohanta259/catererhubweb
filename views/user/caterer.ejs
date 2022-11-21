@@ -1,0 +1,125 @@
+<%- include('../includes/header.ejs') %>
+<body>
+    <!-- Navbar start-->
+    <%- include('../includes/navigation.ejs') %>
+    <!-- Navbar end -->
+
+    <!-- cuisin list -->
+    <div class="container-fluid" style="background-color:whitesmoke;">
+        <div class="row row-cols-1 row-cols-lg-3">
+            
+            <!-- Food Package Start -->
+            <div class="col col-lg-9">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3">
+                    <% if(catererData.length > 0){ 
+                         for(caterer of catererData){ 
+                    %>
+                    <div class="col pt-2">
+                      <div class="p-3 border bg-light">
+                        <div class="card" style="width: 100%">
+                            <img src="/chefs_and_caterers/<%= caterer.image_url %>" class="card-img-top" alt="..." style="height: 12rem;">
+                            <div class="card-body">
+                              <h5 class="card-title"><a href="/user/profile/<%= caterer.caterer_id %>"><%= caterer.caterer_name %></a></h5>
+                              <p class="card-text" style="font-size:80% ;"><Address><%= caterer.address %></Address></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="font-size:80% ;"><%= caterer.owner_name%></li>
+                                <li class="list-group-item" style="font-size:80% ;"><%= caterer.phone_no %></li>
+                                <li class="list-group-item" style="font-size:80% ;"><%= caterer.email %></li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="#" class="card-link" style="font-size:80% ;">Add To Queue</a>
+                                <a href="/user/booking_details/<%= caterer.cuisine_id %>?catererId=<%= caterer.caterer_id %>" class="card-link" style="font-size:80% ;">Select</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% } }else{ %>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-2 g-lg-2">
+                      <div class="card" style="width: 18rem; margin-top: 1rem;">
+                        <img src="/image/image2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">No Caterer Available</p>
+                        </div>
+                      </div>
+                    </div>
+                    <% } %> 
+                    
+                </div>
+
+                <!-- pagination starts-->
+                <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                    <div class="col col-lg-3 col-md-3 col-3">
+                      <div class="py-2 ">
+                              Page 1 of 50
+                      </div>
+                    </div>
+                    <div class="col col-lg-9 col-md-9 col-sm-9">
+                      <div class="py-2  ">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                              <li class="page-item disabled">
+                                <span class="page-link">&laquo;</span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item active" aria-current="page">
+                                <span class="page-link">
+                                  2
+                                  <span class="sr-only">(current)</span>
+                                </span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item"><a class="page-link" href="#">4</a></li>
+                              <!-- <li class="page-item"><a class="page-link" href="#">5</a></li>
+                              <li class="page-item"><a class="page-link" href="#">6</a></li> -->
+                              <li class="page-item">
+                                <a class="page-link" href="#">&raquo;  </a>
+                              </li>
+                            </ul>
+                          </nav>
+                      </div>
+                    </div>
+                </div>  
+                <!-- pagination ends-->
+            </div>
+            <!-- Food Package End -->
+
+            <!--Ads and Promos start -->
+            <div class="col col-lg-3">
+                <div class="card bg-dark text-black my-3">
+                    <img src="/image/image8.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-black my-3">
+                    <img src="/image/image8.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-black my-3">
+                    <img src="/image/image8.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-black my-3">
+                    <img src="/image/image8.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+            </div>   
+            <!--Ads and Promos end -->
+          </div>
+    </div>
+   
+<!-- Footer Start -->
+<%- include('../includes/footer.ejs') %>
+<!-- Footer End -->
+

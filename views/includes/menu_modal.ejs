@@ -1,0 +1,61 @@
+
+  <div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Cuisine Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid" style="background-color:whitesmoke; padding-bottom: 16px;">
+            <!-- <h1 class="py-4"><center>Cuisine Name</center></h1> -->
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3">
+              <% 
+              let cuisine_id = 0; 
+              let selectedItems = [];
+              let dataCount = 0
+              if(cuisineMealData[1].length > 0){
+              dataCount = cuisineMealData[1].length;
+              for(let  menu of cuisineMealData[1]){ 
+                cuisine_id = menu.cuisine_id;
+              %>  
+              <div class="col">
+                <div class="card h-100">
+                  <span class="position-absolute top-1 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+                    <span class="visually-hidden"></span>
+                  </span>
+                  <img src="/image/<%= menu.image_url %>" class="card-img-top" alt="..." height="150rem">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= menu.dish_name %></h5>
+                    <p class="card-text"><%= menu.dish_description.substring(0, 60)+"..." %></p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+                </div>
+              </div>
+              <% } }else{%>
+                <h5>No Mennu Found</h5>
+              <% } %>
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <% if(dataCount >0){ %>
+          <a href="/user/caterer/<%= cuisine_id %>" type="button" class="btn btn-primary">Continue -></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btnSelected');
+    btn.addEventListener('click', function onClick(event){
+      document.body.className = "card-link btn btn-success btn-md btn-block";
+    });
+
+  </script>

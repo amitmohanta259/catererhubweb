@@ -1,0 +1,335 @@
+<%- include('includes/header.ejs') %>
+<body>
+    <!-- Navbar start-->
+    <%- include('includes/navigation.ejs') %>
+    <!-- Navbar end -->
+
+    <!-- CAROUSEL Start -->
+    <%- include('includes/carousel.ejs') %>
+    <!-- CAROUSEL End -->
+
+    <!-- Container cuisin Starts -->
+    <div class="container-fluid" style="background-color:whitesmoke; padding-bottom: 16px;">
+        <h1 class="py-4"><center>Shop By Cuisines</center></h1>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3">
+          <% for(let cuisine of cuisineData[0]){ %>  
+          <div class="col pt-2">
+              <div class="p-3 border bg-light">
+                <div class="card h-100" style="width: 100%">
+                    <img src="/image/<%= cuisine.pic_url %>" class="card-img-top" alt="..." style="height: 10rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= cuisine.cuisine_name %></h5>
+                      <p class="card-text" style="font-size:80% ;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-body my-2 text-center d-flex justify-content-center">
+                      <a href="/user/meal/<%= cuisine.cuisine_id %>" class="card-link btn btn-primary" style="font-size:80% ;">Meals</a>
+                      <a href="/user/caterer/<%= cuisine.cuisine_id %>" class="card-link btn btn-primary" style="font-size:80% ;">Caterers</a>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <% } %>
+        </div>
+    </div>
+    <!-- Container cuisin Ends -->
+
+    <!-- Container Catering Services Starts -->
+    <div class="container-fluid" style="background-color:black; padding-bottom: 16px;">
+        <h1 class="py-4" style="color: white;"><center>Explore Catering Services </center></h1>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3" style="margin-bottom: 1rem;">
+            <% for(let caterer of cuisineData[1]){  %>
+            <div class="col pt-2">
+              <div class="p-3 border bg-light">
+                <div class="card" style="width: 100%">
+                    <img src="/chefs_and_caterers/<%= caterer.image_url %>" class="card-img-top" alt="..." style="height: 10rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= caterer.caterer_name %></h5>
+                      <p class="card-text" style="font-size:80% ;"><address><%= caterer.address %></address></p>
+                    </div>
+                    <div class="card-body my-2 text-center d-flex justify-content-center">
+                      <a href="/user/meal?catereId=<%= caterer.caterer_id %>" class="card-link btn btn-primary" style="font-size:80% ;">Meal</a>
+                      <a href="/user/profile/<%= caterer.caterer_id %>" class="card-link btn btn-primary" style="font-size:80% ;">View Profile</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- Container Catering Services Ends -->
+
+    <!-- Container Chefs Starts -->
+    <div class="container-fluid" style="background-color:whitesmoke; padding-bottom: 16px;">
+        <h1 class="py-4"><center>Top Rated Catering Services</center></h1>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-3">
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Arnapurna Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">4.2</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Kerala Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Tamil Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Mumbai Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Odiya Point
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Delhi Dhaba
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Punjabi Dhaba
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Indian Cuisin Center
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Singh Dhaba
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">4.4</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Roti Wala
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">4.5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Ayushmann Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3 border bg-light">
+                    <a href="" style="text-decoration: none;">
+                        <div class="row align-items-start">
+                            <div class="col-10">
+                                Rohan Catering
+                            </div>
+                            <div class="col-1">
+                                <span class="badge bg-success">5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <!-- Container Chefs Ends -->
+
+    <!-- Places Where We Operate Starts -->
+    <div class="container-fluid" style="background-color:whitesmoke; padding-bottom: 16px;">
+        <h1 class="py-4" style="color: black;"><center>Cities Where We Operate</center></h1>
+        <div class="container">
+            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Bhubanswar
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Pune
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Kolkata
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Mumbai
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Delhi
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Kashmir
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Mysore
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Noida
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Cuttak
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Puri
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Surat
+                    </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3  bg-light">
+                    <a href="" style="text-decoration: none;">
+                        Hyderabad
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <!-- Places Where We Operate Ends -->
+
+    <!-- Footer Start -->
+    <%- include('includes/footer.ejs') %>
+    <!-- Footer End -->

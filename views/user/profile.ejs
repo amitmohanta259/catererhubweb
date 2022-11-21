@@ -1,0 +1,560 @@
+<%- include('../includes/header.ejs') %>
+<body>
+    <!-- Navbar start-->
+    <%- include('../includes/navigation.ejs') %>
+    <!-- Navbar end -->
+
+    <!-- Body Starts -->
+    <div class="container-fluid" style="background-color:whitesmoke;">
+        <div class="row row-cols-1 row-cols-lg-3 pb-3">
+            <!-- Profile Start -->
+            <div class="col col-lg-3">
+                <!-- Card 1 starts -->
+                <% for( let profile of catererProfileData){ %>
+                <div class="card my-3" style="background-color: whitesmoke; border-color: whitesmoke;" >
+                    <img src="/chefs_and_caterers/<%= profile.image_url %>" class="card-img-top" alt="..." height="300rem" style="border-radius: 50%;" >
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><%= profile.caterer_name %></h5>
+                        <p class="card-text">Address: <%= profile.address%> </p>
+                        <p class="card-text">Pin Code: 763008 </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Owner : <%= profile.owner_name %></li>
+                        <li class="list-group-item">
+                            Rating :
+                            <% 
+                              let count = profile.rating;
+                              for(let i=1;i<=count;i++){
+                            %>
+                            <ion-icon name="star" style="color:green;"></ion-icon>
+                            <% } %>
+                            (900)  
+                        </li>
+                        <li class="list-group-item">Experience : 20 years</li>
+                        <li class="list-group-item">Supporting Cook : <%= profile.staff_count %></li>
+                        <li class="list-group-item">Events : <%= profile.event_count %></li>
+                        <li class="list-group-item">Phone : <%= profile.phone_no %></li>
+
+                        
+                        <li class="list-group-item">Mail : <%= profile.email %></li>
+                    </ul>
+    
+                </div>
+                  <!-- Card 1 ends -->
+                <% } %>
+            </div>
+            <!-- Profile Ends -->
+    
+            <!-- Food Package Start -->
+            <div class="col col-lg-5">
+                  <div class="card my-3">
+                    <div class="container">
+                       <!-- Image and description -->
+                        <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
+                          <div class="col">
+                            <img src="/image/image2.jpg" style="height: 10rem;" class="card-img-top" alt="...">
+                          </div>
+                          <div class="col">
+                            <h5>South Indian Pack</h5>
+                            <div class="row align-items-start">
+                                <div class="col-1">
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-success">5 (1125)</span>
+                                </div>
+                            </div>
+                          </div>
+                        </div> 
+    
+                        <!-- Cousin list,price per plate -->
+                        <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p1">MENU</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">tamarind rice, arachu vitta sambar, avial with Kerala red rice, bendekaayi gojju, mango kuzhambu</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p-1">COST</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">RS 120 (plate)</div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                            <!-- <div class="col border">
+                              <div class="py-2  ">
+                                  <a href="" style="text-decoration: none;">
+                                      Call
+                                  </a>
+                              </div>
+                            </div> -->
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                  <a href="" style="text-decoration: none;" data-toggle="modal" data-target="#staticBackdrop">
+                                    Menu
+                                  </a>
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Menu</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-left">
+                                                
+                                                <div class="container overflow-hidden">
+                                                    <div class="row gy-5">
+                                                      <div class="col-6">
+                                                        <div class="p-3 border bg-light" >
+                                                            <div class="list-group">
+                                                                <h6>Main Course</h6>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Cras justo odio
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Dapibus ac facilisis in
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Morbi leo risus
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Porta ac consectetur ac
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Vestibulum at eros
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-6">
+                                                        <div class="p-3 border bg-light">
+                                                            <div class="list-group">
+                                                                <h6>Desserts</h6>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Cras justo odio
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Dapibus ac facilisis in
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Morbi leo risus
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Porta ac consectetur ac
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Vestibulum at eros
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-6">
+                                                        <div class="p-3 border bg-light">
+                                                            <div class="list-group">
+                                                                <h6>Snacks</h6>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Cras justo odio
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Dapibus ac facilisis in
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Morbi leo risus
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Porta ac consectetur ac
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Vestibulum at eros
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-6">
+                                                        <div class="p-3 border bg-light">
+                                                            <div class="list-group">
+                                                                <h6>Drinks</h6>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Cras justo odio
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Dapibus ac facilisis in
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Morbi leo risus
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Porta ac consectetur ac
+                                                                </label>
+                                                                <label class="list-group-item">
+                                                                  <input class="form-check-input mr-1" type="checkbox" value="" checked>
+                                                                  Vestibulum at eros
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                
+    
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                  <a href="/user/booking_details" style="text-decoration: none;">
+                                      Select
+                                  </a>
+                              </div>
+                            </div>
+                        </div>       
+                      </div>
+                  </div>
+                  <!-- end of card 1 -->
+                  <div class="card my-3">
+                    <div class="container">
+                       <!-- Image and description -->
+                        <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
+                          <div class="col">
+                            <img src="/image/image1.jpg" style="height: 10rem;" class="card-img-top" alt="...">
+                          </div>
+                          <div class="col">
+                            <h5>Afgani Pack</h5>
+                            <div class="row align-items-start">
+                                <div class="col-1">
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-success">5 (1125)</span>
+                                </div>
+                            </div>
+                          </div>
+                        </div> 
+    
+                        <!-- Cousin list,price per plate -->
+                        <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p1">MENU</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">tamarind rice, arachu vitta sambar, avial with Kerala red rice, bendekaayi gojju, mango kuzhambu</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p-1">COST</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">RS 120 (plate)</div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                            <!-- <div class="col border">
+                              <div class="py-2 ">
+                                  <a href="" style="text-decoration: none;">
+                                      Call
+                                  </a>
+                              </div>
+                            </div> -->
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                  <a href="" style="text-decoration: none;" data-toggle="modal" data-target="#staticBackdrop">
+                                    Menu
+                                  </a>
+                              </div>
+                            </div>
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                <a href="/user/booking_details" style="text-decoration: none;">
+                                    Select
+                                </a>
+                              </div>
+                            </div>
+                        </div>       
+                      </div>
+                  </div>
+                  <div class="card my-3">
+                    <div class="container">
+                       <!-- Image and description -->
+                        <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
+                          <div class="col">
+                            <img src="/image/image3.jpg" style="height: 10rem;" class="card-img-top" alt="...">
+                          </div>
+                          <div class="col">
+                            <h5>North Indian Package</h5>
+                            <div class="row align-items-start">
+                                <div class="col-1">
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-success">5 (1125)</span>
+                                </div>
+                            </div>
+                          </div>
+                        </div> 
+    
+                        <!-- Cousin list,price per plate -->
+                        <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p1">MENU</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">tamarind rice, arachu vitta sambar, avial with Kerala red rice, bendekaayi gojju, mango kuzhambu</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p-1">COST</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">RS 120 (plate)</div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                            <!-- <div class="col border">
+                              <div class="py-2 ">
+                                  <a href="" style="text-decoration: none;">
+                                      Call
+                                  </a>
+                              </div>
+                            </div> -->
+                            <div class="col border">
+                              <div class="py-2 text-center">
+                                  <a href="" style="text-decoration: none;" data-toggle="modal" data-target="#staticBackdrop">
+                                    Menu
+                                  </a>
+                              </div>
+                            </div>
+                            <div class="col border">
+                              <div class="py-2 text-center">
+                                <a href="/user/booking_details" style="text-decoration: none;">
+                                    Select
+                                </a>
+                              </div>
+                            </div>
+                        </div>       
+                      </div>
+                  </div>
+                  <div class="card my-3">
+                    <div class="container">
+                       <!-- Image and description -->
+                        <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
+                          <div class="col">
+                            <img src="/image/image8.jpg" style="height: 10rem;" class="card-img-top" alt="...">
+                          </div>
+                          <div class="col">
+                            <h5>Non Veg Pack</h5>
+                            <div class="row align-items-start">
+                                <div class="col-1">
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-success">5 (1125)</span>
+                                </div>
+                            </div>
+                          </div>
+                        </div> 
+    
+                        <!-- Cousin list,price per plate -->
+                        <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p1">MENU</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">tamarind rice, arachu vitta sambar, avial with Kerala red rice, bendekaayi gojju, mango kuzhambu</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p-1">COST</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">RS 120 (plate)</div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                            <!-- <div class="col border">
+                              <div class="py-2  ">
+                                  <a href="" style="text-decoration: none;">
+                                      Call
+                                  </a>
+                              </div>
+                            </div> -->
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                  <a href="" style="text-decoration: none;" data-toggle="modal" data-target="#staticBackdrop">
+                                    Menu
+                                  </a>
+                              </div>
+                            </div>
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                <a href="/user/booking_details" style="text-decoration: none;">
+                                    Select
+                                </a>
+                              </div>
+                            </div>
+                        </div>       
+                      </div>
+                  </div>
+                  <div class="card my-3">
+                    <div class="container">
+                       <!-- Image and description -->
+                        <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
+                          <div class="col">
+                            <img src="/image/image15.jpg" style="height: 10rem;" class="card-img-top" alt="...">
+                          </div>
+                          <div class="col">
+                            <h5>Combo Pack</h5>
+                            <div class="row align-items-start">
+                                <div class="col-1">
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-success">5 (1125)</span>
+                                </div>
+                            </div>
+                          </div>
+                        </div> 
+    
+                        <!-- Cousin list,price per plate -->
+                        <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p1">MENU</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">tamarind rice, arachu vitta sambar, avial with Kerala red rice, bendekaayi gojju, mango kuzhambu</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="p-1">COST</div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <div class="p-1">RS 120 (plate)</div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                            <!-- <div class="col border">
+                              <div class="py-2 ">
+                                  <a href="" style="text-decoration: none;">
+                                      Call
+                                  </a>
+                              </div>
+                            </div> -->
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                  <a href="" style="text-decoration: none;" data-toggle="modal" data-target="#staticBackdrop">
+                                    Menu
+                                  </a>
+                              </div>
+                            </div>
+                            <div class="col border">
+                              <div class="py-2  text-center">
+                                <a href="/user/booking_details" style="text-decoration: none;">
+                                    Select
+                                </a>
+                              </div>
+                            </div>
+                        </div>       
+                      </div>
+                  </div>
+                  <!-- pagination starts-->
+                  <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
+                    <div class="col col-lg-3 col-md-3 col-3">
+                      <div class="py-2 ">
+                              Page 1 of 50
+                      </div>
+                    </div>
+                    <div class="col col-lg-9 col-md-9 col-sm-9">
+                      <div class="py-2  ">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                              <li class="page-item disabled">
+                                <span class="page-link">&laquo;</span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item active" aria-current="page">
+                                <span class="page-link">
+                                  2
+                                  <span class="sr-only">(current)</span>
+                                </span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item"><a class="page-link" href="#">4</a></li>
+                              <!-- <li class="page-item"><a class="page-link" href="#">5</a></li>
+                              <li class="page-item"><a class="page-link" href="#">6</a></li> -->
+                              <li class="page-item">
+                                <a class="page-link" href="#">&raquo;  </a>
+                              </li>
+                            </ul>
+                          </nav>
+                      </div>
+                    </div>
+                  </div>  
+                  <!-- pagination ends-->
+            </div>
+            <!-- Food Package End -->
+    
+            <!--Ads and Promos start -->
+            <div class="col col-lg-4">
+                <div class="card bg-light text-black my-3">
+                    <img src="/image/image1.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-light text-black my-3">
+                    <img src="/image/image1.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-light text-black my-3">
+                    <img src="/image/image1.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+                <div class="card bg-light text-black my-3">
+                    <img src="/image/image1.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-right" style="padding-top: 40%;">Advertisement</h5>
+                      <p class="card-text text-right">Taste the unthinkable</p>
+                    </div>
+                </div>
+            </div>   
+            <!--Ads and Promos end -->
+          </div>
+    </div>
+    <!-- Body Ends -->
+
+<!-- Footer Start -->
+<%- include('../includes/footer.ejs') %>
+<!-- Footer End -->
