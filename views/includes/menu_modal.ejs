@@ -13,7 +13,8 @@
             <!-- <h1 class="py-4"><center>Cuisine Name</center></h1> -->
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3">
               <% 
-              let cuisine_id = 0; 
+              let cuisine_id = 0;
+              let caterer_id =0; 
               let selectedItems = [];
               let dataCount = 0
               if(cuisineMealData[1].length > 0){
@@ -40,6 +41,7 @@
                 dataCount = cuisineMealData[1].length;
                 for(let  menu of cuisineMealData[1]){ 
                   cuisine_id = menu.cuisine_id;
+                  caterer_id = menu.caterer_id;
               %>
               <div class="col">
                 <div class="card h-100">
@@ -64,9 +66,13 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          <% if(dataCount >0){ %>
-          <a href="/user/caterer/<%= cuisine_id %>" type="button" class="btn btn-primary">Continue -></a>
-          <% } %>
+          <% if(dataCount >0){  
+            if(catererId){ 
+          %>     
+          <a href="/user/booking_details/<%= cuisine_id %>?catererId=<%= catererId %>" type="button" class="btn btn-primary">Continue -></a>
+          <% } else {%>
+            <a href="/user/caterer/<%= cuisine_id %>?catererId=<%= catererId %>" type="button" class="btn btn-primary">Continue -></a>  
+          <% }} %>
         </div>
       </div>
     </div>
