@@ -264,128 +264,29 @@
         <!-- Filter Ends -->
 
         <!-- Food Package Start -->
-        <div class="col col-lg-5 order-1 order-lg-2 order-xl-1 order-md-1 ">
+        
+        <div class="col col-lg-5 order-2 order-lg-1 order-xl-1 order-md-1" style="margin-top: 1rem;">
             <% 
-              if(cuisineMealData[0].length > 0){ 
-                  for( meal of cuisineMealData[0]) {
+              if(catererCuisineData.length > 0){ 
+                  for( meal of catererCuisineData) {
             %>
-                  <div class="card my-3">
-                      <div class="container">
-                        <!-- Image and description -->
-                          <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
-                            <div class="col">
-                              <img src="/image/image2.jpg" style="height: 10rem;" class="card-img-top" alt="...">
-                            </div>
-                            <div class="col">
-                              <h5><%= meal.cuisine_name %> (<%= meal.meal_name %>)</h5>
-                              <div class="row align-items-start">
-                                  <div class="col-1">
-                                      <ion-icon name="star"></ion-icon>
-                                  </div>
-                                  <div class="col-1">
-                                      <span class="badge bg-success">5 (1125)</span>
-                                  </div>
-                              </div>
-                            </div>
-                          </div> 
-
-                          <!-- Cousin list,price per plate -->
-                          <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
-                              <div class="col-lg-3 col-md-3 col-sm-3">
-                                  <div class="p1" style="font-size:80% ;">Story:</div>
-                              </div>
-                              <div class="col-lg-9 col-md-9 col-sm-9">
-                                  <div class="p-1" style="font-size:80% ;">Consist of Main Course, Rice, Dal with veg and non veg curry</div>
-                              </div>
-                              <div class="col-lg-3 col-md-3 col-sm-3">
-                                  <div class="p-1" style="font-size:80% ;">Cost:</div>
-                              </div>
-                              <div class="col-lg-9 col-md-9 col-sm-9">
-                                  <div class="p-1" style="font-size:80% ;">RS 200 (plate)</div>
-                              </div>
-                          </div>
-                          <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
-                              <div class="col border">
-                                <div class="py-2  text-center">
-                                    <a href="/user/menu?cuisineId=<%= meal.cuisine_id %>&catererId=0"  type="submit" style="text-decoration: none;font-size:80%;" data-toggle="modal" data-target="#staticBackdrop" >
-                                      Menu
-                                    </a>
-                                    <!-- Modal -->
-                                    <%- include('../includes/menu_modal.ejs') %>
-                                </div>
-                              </div>
-                              <div class="col border">
-                                <div class="py-2  text-center">
-                                    <a href="/user/caterer" style="text-decoration: none;font-size:80% ;">
-                                        Explore Caterers
-                                    </a>
-                                </div>
-                              </div>
-                          </div>       
-                        </div>
+            <div class="row row-cols-2 row-cols-md-2 g-4">
+              <div class="col">
+                <div class="card h-100">
+                  <img src="/image/<%= meal.pic_url %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= meal.cuisine_name %></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
-            <% }
-              }else if(cuisineMealData.length > 0){ 
-                for(meal of cuisineMealData){
-            %>
-            <div class="card my-3">
-              <div class="container">
-                <!-- Image and description -->
-                  <div class="row row-cols-1 row-cols-lg-2 align-items-start  my-2">
-                    <div class="col">
-                      <img src="/image/image2.jpg" style="height: 10rem;" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col">
-                      <h5><%= meal.cuisine_name %> (<%= meal.meal_name %>)</h5>
-                      <div class="row align-items-start">
-                          <div class="col-1">
-                              <ion-icon name="star"></ion-icon>
-                          </div>
-                          <div class="col-1">
-                              <span class="badge bg-success">5 (1125)</span>
-                          </div>
-                      </div>
-                    </div>
-                  </div> 
-
-                  <!-- Cousin list,price per plate -->
-                  <div class="row row-cols-2 row-cols-lg-2 align-items-start border-top my-2">
-                      <div class="col-lg-3 col-md-3 col-sm-3">
-                          <div class="p1" style="font-size:80% ;">Story:</div>
-                      </div>
-                      <div class="col-lg-9 col-md-9 col-sm-9">
-                          <div class="p-1" style="font-size:80% ;">Consist of Main Course, Rice, Dal with veg and non veg curry</div>
-                      </div>
-                      <div class="col-lg-3 col-md-3 col-sm-3">
-                          <div class="p-1" style="font-size:80% ;">Cost:</div>
-                      </div>
-                      <div class="col-lg-9 col-md-9 col-sm-9">
-                          <div class="p-1" style="font-size:80% ;">RS 200 (plate)</div>
-                      </div>
+                  <div class="card-body my-2 text-center d-flex justify-content-center">
+                      <a href="/user/meal?catererId=<%= catererId %>&cuisineId=<%= meal.cuisine_id  %>" class="card-link btn btn-primary" style="font-size:80% ;">Meal</a>
+                      <a href="/user/profile/<%= catererId %>" class="card-link btn btn-primary" style="font-size:80% ;">View Profile</a>
                   </div>
-                  <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3 my-1">
-                      <div class="col border">
-                        <div class="py-2  text-center">
-                            <a href="/user/menu?cuisineId=<%= meal.cuisine_id %>&catererId=<%= meal.caterer_id %>"  type="submit" style="text-decoration: none;font-size:80%;" data-toggle="modal" data-target="#staticBackdrop" >
-                              Menu
-                            </a>
-                            <!-- Modal -->
-                            <%- include('../includes/menu_modal.ejs') %>
-                        </div>
-                      </div>
-                      <div class="col border">
-                        <div class="py-2  text-center">
-                            <a href="/user/caterer" style="text-decoration: none;font-size:80% ;">
-                                Explore Caterers
-                            </a>
-                        </div>
-                      </div>
-                  </div>       
                 </div>
-          </div> 
-            <%   }
-              }
-              else{ %>
+              </div>
+            </div>
+            <%    }
+              }else{ %>
               <div class="card" style="width: 18rem;margin-top: 1rem;" >
                 <img src="/image/image2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">

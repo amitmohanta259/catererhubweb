@@ -33,18 +33,24 @@ router.get('/user/confirmation',bookingController.bookingConfirmation);
 ///user/booking_history.html
 router.get('/user/booking_history',bookingController.getBookingHistory);
 
+router.get('/user/meal',menuController.getCatererCuisineMeal);
 //for meals
 router.get('/user/meal/:cuisineId',menuController.getCuisineMeal);
 
 //dynamic routeS
-router.get('/user/menu/:cuisineId',menuController.getCuisineMenu);
 
-router.get('/user/menu/:cuisineId',menuController.getCuisineMenu);
+
+//router.get('/user/menu/:cuisineId',menuController.getCuisineMenu);
+
+router.get('/user/menu',menuController.getCuisineMenu);
+
+//router.get('/user/menu',menuController.getCatererCuisineMenu);
+
 
 ///user/payment.html
 router.get('/user/addOrder',paymentController.getOrderDetails);
 
 // router.post('/user/addOrder',paymentController.postOrderDetails);
-
+router.get('/user/cuisine/:catererId',menuController.getCatererCuisine);
 
 module.exports = router;

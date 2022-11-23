@@ -36,7 +36,27 @@
                   </div>
                 </div>
               </div>
-              <% } }else{%>
+              <% } }else if(cuisineMealData[1].length > 0){
+                dataCount = cuisineMealData[1].length;
+                for(let  menu of cuisineMealData[1]){ 
+                  cuisine_id = menu.cuisine_id;
+              %>
+              <div class="col">
+                <div class="card h-100">
+                  <span class="position-absolute top-1 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+                    <span class="visually-hidden"></span>
+                  </span>
+                  <img src="/image/<%= menu.image_url %>" class="card-img-top" alt="..." height="150rem">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= menu.dish_name %></h5>
+                    <p class="card-text"><%= menu.dish_description %></p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </div>
+                </div>
+              </div>
+              <%}}else{%>  
                 <h5>No Mennu Found</h5>
               <% } %>
             </div>
