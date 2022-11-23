@@ -101,11 +101,11 @@ exports.getCatererCuisineMeal = (req,res,next)=>{
 }
 
 
-exports.getCatererCuisineMenu = (req,res,next)=>{
-    const caterer_id = req.query.catererId;
-    const cuisine_id = req.query.cuisineId;
-    Cuisine.fetchCatererMenu().then(
+// exports.getCatererCuisineMenu = (req,res,next)=>{
+//     const caterer_id = req.query.catererId;
+//     const cuisine_id = req.query.cuisineId;
+//     Cuisine.fetchCatererMenu().then(
 
-    ).catch();
+//     ).catch();
 
-}
+// }
