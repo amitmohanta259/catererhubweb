@@ -15,7 +15,9 @@
                     <div class="col col-lg-3">
                     <h3 class="pt-2 pt-lg-2">Caterer Details</h3>
                       <div class="p-1 border bg-light">
-                        <% for(let checkoutData of catererCuisineData[0]){ %>
+                        <%
+                        console.log(catererCuisineData)
+                         for(let checkoutData of catererCuisineData[0]){ %>
                         <div class="card" >
                             <img src="/chefs_and_caterers/<%= checkoutData.image_url %>" style="height: 13rem;" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -113,9 +115,8 @@
                       <% let perPlateCost = 0;
                         let cgst = 0;
                         let sgst = 0; 
-                        let cuisine_id = catererCuisineData[1][0].cuisine_id;
-                        let caterer_id = catererCuisineData[1][0].caterer_id;
-                        console.log(cuisine_id+" "+caterer_id);
+                        let cuisine_id = catererCuisineData[1].cuisine_id;
+                        let caterer_id = catererCuisineData[1].caterer_id;
                         for (let cuisineData of catererCuisineData[1]){ 
                             perPlateCost= perPlateCost + cuisineData.price;
                       %>

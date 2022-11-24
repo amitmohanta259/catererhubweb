@@ -66,13 +66,16 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          <% if(dataCount >0){  
-            if(catererId){ 
+          <% 
+          if(dataCount >0){  
+            if(catererId > 0){ 
           %>     
           <a href="/user/booking_details/<%= cuisine_id %>?catererId=<%= catererId %>" type="button" class="btn btn-primary">Continue -></a>
-          <% } else {%>
+          <% }else {%>
             <a href="/user/caterer/<%= cuisine_id %>?catererId=<%= catererId %>" type="button" class="btn btn-primary">Continue -></a>  
-          <% }} %>
+          <% }
+          } %>
+           
         </div>
       </div>
     </div>

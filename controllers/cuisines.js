@@ -49,12 +49,14 @@ exports.getCuisineMenu = (req,res,next)=>{
 //need to pass parameter
 exports.getCuisineMeal = (req,res,next)=>{
     const cuisine_id = req.params.cuisineId;
+    const caterer_id = 0;
     Cuisine.fetchMeals(cuisine_id)
     .then(([rows,data])=>{
         res.render('user/meals',{
             cuisineMealData:rows,
             pageTitle:'Meals',
             path:'/user/meal',
+            catererId:caterer_id,
                     
         });
     })
@@ -83,6 +85,8 @@ exports.getCatererCuisine = (req,res,next)=>{
 exports.getCatererCuisineMeal = (req,res,next)=>{
     const caterer_id = req.query.catererId;
     const cuisine_id = req.query.cuisineId;
+    console.log(caterer_id);
+    console.log(cuisine_id);
     Cuisine.fetchCatererMeals(caterer_id,cuisine_id)
     .then(([rows,data])=>{
         res.render('user/meals',{
