@@ -85,8 +85,7 @@ exports.getCatererCuisine = (req,res,next)=>{
 exports.getCatererCuisineMeal = (req,res,next)=>{
     const caterer_id = req.query.catererId;
     const cuisine_id = req.query.cuisineId;
-    console.log(caterer_id);
-    console.log(cuisine_id);
+    
     Cuisine.fetchCatererMeals(caterer_id,cuisine_id)
     .then(([rows,data])=>{
         res.render('user/meals',{
