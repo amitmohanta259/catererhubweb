@@ -8,8 +8,8 @@ const adminRoute = require('./routes/admin');
 
 //Controller
 const errorController = require('./controllers/error');
-const port = 3000;
-
+//const port = 3000;
+const port = process.env.PORT || 3000;
 //for ejs
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'source')));
