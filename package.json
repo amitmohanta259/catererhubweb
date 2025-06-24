@@ -6,6 +6,6 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-  "start": "node caterers.js"
+  "start": "node controllers/caterers.js"
   }
 }
