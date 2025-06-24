@@ -8,6 +8,7 @@ const adminRoute = require('./routes/admin');
 
 //Controller
 const errorController = require('./controllers/error');
+const port = 3000;
 
 //for ejs
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,4 +22,4 @@ app.use(userRoutes);
 app.use(adminRoute);
 app.use(errorController.get404);
 
-app.listen(3000);
+app.listen(port);
