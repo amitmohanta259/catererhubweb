@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'source')));
 app.set('view engine','ejs');
 app.set('views','views');
-app.use(express.urlencoded())
+//app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: false }));
 
 //Middlewares
 app.use(userRoutes);
