@@ -22,4 +22,4 @@ app.use(userRoutes);
 app.use(adminRoute);
 app.use(errorController.get404);
 
-app.listen(port);
+app.listen(port, () => console.log(`server started at port:${port}`));
