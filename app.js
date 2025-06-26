@@ -23,4 +23,4 @@ app.use(userRoutes);
 app.use(adminRoute);
 app.use(errorController.get404);
 
-app.listen(PORT, () => console.log(`server started at port ${PORT}`);
+app.listen(PORT, () => console.log(`server started at port ${PORT}`));
